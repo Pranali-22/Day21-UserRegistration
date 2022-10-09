@@ -13,9 +13,11 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author Dell
- * UC11 - Write JUnit Parameterised Test to
- * validate multiple entry for the Email Address.
+ * UC12 - Refactor the Code to throw custom
+ * exceptions in case of
+ * Invalid User Details - Rewrite all Test Cases to take in Custom
  */
+
 class UserRegistrationTest {
 
 	@Test
@@ -36,21 +38,14 @@ class UserRegistrationTest {
 		System.out.println("Enter password");
 		String password = input.nextLine();
 		
-		UserRegistration userRegistration = new UserRegistration(firstName, lastName, emailId, mobileNumber, password);
-				
-		Assert.assertTrue("Sad",userRegistration.validateUserRegistration());		
+		UserRegistration userRegistration = new UserRegistration(firstName, lastName, emailId, mobileNumber, password);	
+		
+		userRegistration.validateFirstNameWithException(firstName);
+		userRegistration.validateLastNameWithException(lastName);
+		userRegistration.validateEmailIdWithException(emailId);
+		userRegistration.validateMobileNumberWithException(mobileNumber);
+		userRegistration.validatePasswordWithException(password);
 	}
 	
-	//Test case to Validate multiple email ids
-	@Test
-	void validate_multiple_email_addresses() {
-		List<String> emailList = new ArrayList<String>(Arrays.asList("abc@yahoo.com","abc-100@yahoo.com","abc111@abc.com","abc@1.com","abc","abc@.com.my","abc123@gmail.a","abc123@.com.com","abc@%*.com"));
-		UserRegistration userRegistration = new UserRegistration();
-		
-		for(String emailID : emailList) {
-			if(userRegistration.validateEmailAddress(emailID)) {
-				Assert.assertTrue("Invalid email id", userRegistration.validateEmailAddress(emailID));
-			}
-		}
-	}
+	
 }
