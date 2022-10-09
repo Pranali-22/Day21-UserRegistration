@@ -13,9 +13,11 @@ import org.junit.jupiter.api.Test;
 
 /**
  * @author Dell
- * UC11 - Write JUnit Parameterised Test to
- * validate multiple entry for the Email Address.
+ * UC10 - Write JUnit Test to validate the User
+ * Entry for First Name, Last Name,
+ * Email, Mobile, and Password.
  */
+
 class UserRegistrationTest {
 
 	@Test
@@ -41,17 +43,4 @@ class UserRegistrationTest {
 		Assert.assertTrue("Sad",userRegistration.validateUserRegistration());		
 	}
 	
-	//Test case to Validate multiple email ids
-	@Test
-	void validate_multiple_email_addresses() {
-		List<String> emailList = new ArrayList<String>(Arrays.asList("abc@yahoo.com","abc-100@yahoo.com","abc111@abc.com","abc@1.com","abc","abc@.com.my","abc123@gmail.a","abc123@.com.com","abc@%*.com"));
-		UserRegistration userRegistration = new UserRegistration();
-		
-		for(String emailID : emailList) {
-			if(userRegistration.validateEmailAddress(emailID)) {
-				Assert.assertTrue("Invalid email id", userRegistration.validateEmailAddress(emailID));
-			}
-			
-		}
-	}
 }

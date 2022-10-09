@@ -8,8 +8,9 @@ import java.util.regex.Pattern;
 
 /**
  * @author Dell
- * UC11 - Write JUnit Parameterised Test to
- * validate multiple entry for the Email Address.
+ * UC10 - Write JUnit Test to validate the User
+ * Entry for First Name, Last Name,
+ * Email, Mobile, and Password.
  */
 
 public class UserRegistration {
