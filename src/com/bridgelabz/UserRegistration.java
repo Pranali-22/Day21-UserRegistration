@@ -8,12 +8,16 @@ import java.util.regex.Pattern;
 
 /**
  * @author Dell
- * UC10 - Write JUnit Test to validate the User
- * Entry for First Name, Last Name,
- * Email, Mobile, and Password.
+ * UC11 - Write JUnit Parameterised Test to
+ * validate multiple entry for the Email Address.
  */
+
 public class UserRegistration {
 	String firstName, lastName, emailId, mobileNumber, password;
+	
+	public UserRegistration() {
+		
+	}
 		
 	//Parameterized constructor
 	public UserRegistration(String firstName, String lastName, String emailId, String mobileNumber, String password) {
@@ -43,23 +47,29 @@ public class UserRegistration {
 	//Validate email address
 	public static boolean validateEmailAddress(String emailId) {
 		String newRegex = "^[a-zA-Z]+[a-zA-Z0-9]*[- . + _]?[a-zA-Z0-9]+[@]{1}[a-z0-9]+[.]{1}[a-z]+[.]?[a-z]+$";
-		return emailId.matches(newRegex);
+		Pattern patternObj = Pattern.compile(newRegex);			 
+		Matcher matcherObj = patternObj.matcher(emailId);
+		return matcherObj.matches();
 	}
 
 		
 	//Validate mobile number
 	public static boolean validateMobileNumber(String mobileNumber) {
-		String nameRegex = "[0-9]{2} [0-9]{10}$";
-		return mobileNumber.matches(nameRegex);
+		String newRegex = "[0-9]{2} [0-9]{10}$";
+		Pattern patternObj = Pattern.compile(newRegex);			 
+		Matcher matcherObj = patternObj.matcher(mobileNumber);
+		return matcherObj.matches();
 	}
 		
 	//Validate password to have exact 1 special character
 	public static boolean validatePassword(String password) {
-		String nameRegex = "[A-Z]{1,}[a-zA-Z0-9]{5,}[!@#$&*]{1,}[0-9]{1,}$";
-		return password.matches(nameRegex);
+		String newRegex = "[A-Z]{1,}[a-zA-Z0-9]{5,}[!@#$&*]{1,}[0-9]{1,}$";
+		Pattern patternObj = Pattern.compile(newRegex);			 
+		Matcher matcherObj = patternObj.matcher(password);
+		return matcherObj.matches();
 	}
 		
-	//Validate user registration
+	//Validate User Registration
 	public boolean validateUserRegistration() {
 		boolean isValidFirstName = validateFirstName(this.firstName);
 		boolean isValidLastName = validateLastName(this.lastName);
