@@ -79,4 +79,5 @@ public class UserRegistration {
 		
 		return(isValidFirstName && isValidLastName && isValidEmailId && isValidMobileNumber && isValidPassword);
 	}
+	
 }

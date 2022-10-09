@@ -51,7 +51,6 @@ class UserRegistrationTest {
 			if(userRegistration.validateEmailAddress(emailID)) {
 				Assert.assertTrue("Invalid email id", userRegistration.validateEmailAddress(emailID));
 			}
-			
 		}
 	}
 }
